@@ -15,7 +15,26 @@ class ExpenseItem extends StatelessWidget {
         vertical: 16,
       ),
       child: Card(
-        child: Text(expense.title),
+        child: Column(
+          children: [
+            Text(
+              expense.title,
+            ),
+            SizedBox(
+              height: 4,
+            ),
+            Row(
+              children: [
+                Text(
+                    '\$${expense.amount.toStringAsFixed(2)}'), // it converts 12.345141 => 12.34
+                Spacer(),
+                Row(
+                  children: [],
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
