@@ -16,6 +16,12 @@ class ExpensesList extends StatelessWidget {
     return ListView.builder(
       itemCount: expenses.length,
       itemBuilder: (ctx, i) => Dismissible(
+        background: Container(
+          color: Colors.red,
+          margin: EdgeInsets.symmetric(
+            horizontal: 16,
+          ),
+        ),
         key: ValueKey(expenses[i]),
         child: ExpenseItem(
           expenses[i],

@@ -11,6 +11,15 @@ var kColorScheme = ColorScheme.fromSeed(
   ),
 );
 
+var kDarkColorScheme = ColorScheme.fromSeed(
+  seedColor: Color.fromARGB(
+    255,
+    5,
+    99,
+    125,
+  ),
+);
+
 void main() {
   runApp(MyApp());
 }
@@ -21,6 +30,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      darkTheme: ThemeData().copyWith(
+        colorScheme: kDarkColorScheme,
+        cardTheme: const CardTheme().copyWith(
+          color: kDarkColorScheme.secondaryContainer,
+          margin: const EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 8,
+          ),
+        ),
+      ),
       theme: ThemeData().copyWith(
         colorScheme: kColorScheme,
         appBarTheme: AppBarTheme().copyWith(
@@ -46,6 +65,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
       ),
+      themeMode: ThemeMode.dark, // will be themed based on device
       debugShowCheckedModeBanner: false,
       home: Expenses(),
     );

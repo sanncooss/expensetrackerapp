@@ -38,3 +38,28 @@ class Expense {
     required this.category,
   }) : id = uuid.v4(); // assings a initial value
 }
+
+class ExpenseBucket {
+  final Category category;
+  final List<Expense> expenses;
+
+  ExpenseBucket({required this.category, required this.expenses});
+
+  ExpenseBucket.forCategory(List<Expense> allExpense, this.category)
+      : expenses = allExpense
+            .where(
+              (
+                element,
+              ) =>
+                  element.category == category,
+            )
+            .toList();
+
+  double get totalExpense {
+    double sum = 0;
+    for (var i in expenses) {
+      sum += i.amount;
+    }
+    return sum;
+  }
+}
