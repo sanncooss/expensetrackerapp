@@ -11,12 +11,15 @@ class ExpenseItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: 20,
-        vertical: 16,
+        horizontal: 5,
+        vertical: 5,
       ),
       child: Card(
         child: Column(
           children: [
+            SizedBox(
+              height: 6,
+            ),
             Text(
               expense.title,
             ),
@@ -25,8 +28,10 @@ class ExpenseItem extends StatelessWidget {
             ),
             Row(
               children: [
-                Text(
-                    '\$${expense.amount.toStringAsFixed(2)}'), // it converts 12.345141 => 12.34
+                Padding(
+                  padding: const EdgeInsets.only(left: 13.0, bottom: 6),
+                  child: Text('\$${expense.amount.toStringAsFixed(2)}'),
+                ), // it converts 12.345141 => 12.34
                 const Spacer(),
                 Row(
                   children: [
@@ -34,7 +39,10 @@ class ExpenseItem extends StatelessWidget {
                     SizedBox(
                       width: 8,
                     ),
-                    Text(expense.formattedDate)
+                    Text(expense.formattedDate),
+                    SizedBox(
+                      width: 10,
+                    )
                   ],
                 )
               ],
